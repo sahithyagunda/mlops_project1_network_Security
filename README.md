@@ -1,1 +1,1 @@
-venv
+## Network security project for Phishing Data
