@@ -25,4 +25,12 @@ def get_requirements()->List[str]:
     return requirement_list
 
 
-print(get_requirements())
+## setting up metadata
+setup(
+    name = "NetworkSecurityProject",
+    version="0.0.1",
+    author="Sahithya",
+    author_email="gundasahithya908@gmail.com",
+    packages=find_packages(),
+    install_requires=get_requirements()
+)

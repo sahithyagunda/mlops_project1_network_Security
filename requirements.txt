@@ -1,7 +1,9 @@
 python-dotenv
 pandas
 numpy
-pymongo
 certifi
+## pymongo -- installed manually in cmd
+## pymongo[srv]==3.6
 
--e .
+
+-e . ### referring to setup.py file
