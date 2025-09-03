@@ -16,8 +16,17 @@ import mlflow
 from urllib.parse import urlparse
 import sys
 import os
+import joblib
+import dagshub
+dagshub.init(repo_owner='sahithyagunda908', repo_name='mlops_project1_network_Security', mlflow=True)
 
 
+"""
+os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/sahithyagunda908/mlops_project1_network_Security.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"]="sahithyagunda908"
+os.environ["MLFLOW_TRACKING_PASSWORD"]="76b6a7f9fb532447890df95caf7b3c2361b1c1f3"
+
+"""
 class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:DataTransformationArtifact):
         try:
@@ -27,16 +36,25 @@ class ModelTrainer:
             raise NetworkSecurityException(e,sys)
         
 
-    def track_mlflow(self,best_model,classificationmetric):
-        with mlflow.start_run():
-            f1_score=classificationmetric.f1_score
-            precision_score=classificationmetric.precision_score
-            recall_score=classificationmetric.recall_score
+    def track_mlflow(self, best_model, classificationmetric):
+        mlflow.set_registry_uri("https://dagshub.com/sahithyagunda908/mlops_project1_network_Security.mlflow")
+        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
-            mlflow.log_metric("f1_score",f1_score)
-            mlflow.log_metric("precision",precision_score)
-            mlflow.log_metric("recall_score",recall_score)
-            mlflow.sklearn.log_model(best_model,"model")
+        with mlflow.start_run():
+            f1_score = classificationmetric.f1_score
+            precision_score = classificationmetric.precision_score
+            recall_score = classificationmetric.recall_score
+
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("precision", precision_score)
+            mlflow.log_metric("recall_score", recall_score)
+            mlflow.sklearn.log_model(best_model, "model")
+
+            joblib.dump(best_model, "best_model.pkl")
+            mlflow.log_artifact("best_model.pkl")
+            os.remove("best_model.pkl")
+
+
 
 
     def train_model(self,X_train,y_train,X_test,y_test):
