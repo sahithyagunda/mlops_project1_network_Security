@@ -4,6 +4,13 @@ numpy
 certifi
 ## pymongo -- installed manually in cmd
 ## pymongo[srv]==3.6
+scikit-learn
+mlflow
+pyaml
+dagshub
+fastapi
+uvicorn
+python-multipart
 
 
 -e . ### referring to setup.py file

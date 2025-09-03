@@ -1,36 +1,28 @@
-"""
-Setup.py file is an essential part of packaging and distributing python projects. it is used by setup tools(or distutils in older python versions) to define configurations of your projects, such as its meta data, dependencies and more
-
-"""
-
-## find packages --- finds the folders with __init__.py and considers it has a package
-
-from setuptools import find_packages,setup
+from setuptools import setup, find_packages
 from typing import List
 
-def get_requirements()->List[str]:
+def get_requirements(file_path: str = 'requirements.txt') -> List[str]:
     """
-    This function will return list of requirements
+    Returns a list of requirement strings read from requirements.txt,
+    excluding '-e .' or other invalid lines.
     """
-    requirement_list:List[str]=[]
+    requirements = []
     try:
-        with open('requirements.txt','r') as file:
-            lines = file.readlines()
-            for line in lines:
-                requirement = line.strip()
-                if requirement and requirement!='-e .':
-                    requirement_list.append(requirement) 
+        with open(file_path) as file:
+            for line in file:
+                line = line.strip()
+                if line and not line.startswith('-e'):
+                    requirements.append(line)
     except FileNotFoundError:
-        print('File not found')
-    return requirement_list
+        print("requirements.txt not found.")
+    
+    return requirements
 
-
-## setting up metadata
 setup(
-    name = "NetworkSecurityProject",
+    name="NetworkSecurityProject",
     version="0.0.1",
     author="Sahithya",
     author_email="gundasahithya908@gmail.com",
     packages=find_packages(),
-    install_requires=get_requirements()
+    install_requires=get_requirements(),
 )

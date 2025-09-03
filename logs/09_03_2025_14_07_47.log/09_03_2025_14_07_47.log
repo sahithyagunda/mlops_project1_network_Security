@@ -1,0 +1,18 @@
+[2025-09-03 14:07:49,927] 16 root - INFO - Initiate the data ingestion
+[2025-09-03 14:07:57,963] 53 root - INFO - Performed train test split
+[2025-09-03 14:07:57,963] 55 root - INFO - Exited spiltting_data_train_test method of DataIngestion class 
+[2025-09-03 14:07:57,963] 59 root - INFO - Exporting train and test file path
+[2025-09-03 14:07:58,024] 65 root - INFO - Exported train and test file paths
+[2025-09-03 14:07:58,024] 18 root - INFO - Data Initiation Completed
+[2025-09-03 14:07:58,030] 22 root - INFO - Initiate the data Validation
+[2025-09-03 14:07:58,302] 24 root - INFO - data Validation Completed
+[2025-09-03 14:07:58,302] 26 root - INFO - data transformation started
+[2025-09-03 14:07:58,302] 57 root - INFO - Entered initiate data transformation method
+[2025-09-03 14:07:58,302] 59 root - INFO - starting data transformation
+[2025-09-03 14:07:58,403] 42 root - INFO - Entered get_data_transformer_object method of Transformation class
+[2025-09-03 14:07:58,403] 47 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2025-09-03 14:07:58,411] 48 root - INFO - Entered the save_object method of MainUtils class
+[2025-09-03 14:07:58,421] 52 root - INFO - Exited the save_object method of MainUtils class
+[2025-09-03 14:07:58,421] 48 root - INFO - Entered the save_object method of MainUtils class
+[2025-09-03 14:07:58,425] 52 root - INFO - Exited the save_object method of MainUtils class
+[2025-09-03 14:07:58,427] 31 root - INFO - data transformation completed

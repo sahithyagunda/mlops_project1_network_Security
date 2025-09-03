@@ -3,14 +3,14 @@ import os
 import json
 import sys
 import certifi ##python package provides set of root certificates -- used to make secure http connection
-from dotenv import load_env
+from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
 import pymongo
 from networksecurity.exceptions.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 
-load_env()
+load_dotenv()
 MONGO_DB_URI=os.getenv("MONGO_DB_URI")
 
 ca=certifi.where() ## retrieves the path to the bundle of root ca(certificate authorities) certificates and store it in "ca" variable. ensures the server we are connceting to is authorized and safe.
@@ -34,7 +34,7 @@ class NetworkDataExtract():
             raise NetworkSecurityException(e,sys)
         
 
-    def insert_data_mongodb(self,records,database,collections) ## in mongodb we neeed to create database and collection-like a table in sql
+    def insert_data_mongodb(self,records,database,collections): ## in mongodb we neeed to create database and collection-like a table in sql
         try:
             self.database = database
             self.collections = collections
@@ -57,3 +57,5 @@ if __name__ =="__main__":
     records = networkobj.csv_to_json(file_path=FILE_PATH)
     no_of_records = networkobj.insert_data_mongodb(records,DATABASE,collection)
     print(no_of_records)
+
+## check data in atlas mongodb
