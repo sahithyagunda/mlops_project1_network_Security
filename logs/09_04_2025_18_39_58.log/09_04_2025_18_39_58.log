@@ -1,0 +1,21 @@
+[2025-09-04 18:40:20,173] 41 root - INFO - Start data Ingestion
+[2025-09-04 18:40:25,518] 53 root - INFO - Performed train test split
+[2025-09-04 18:40:25,518] 55 root - INFO - Exited spiltting_data_train_test method of DataIngestion class 
+[2025-09-04 18:40:25,518] 59 root - INFO - Exporting train and test file path
+[2025-09-04 18:40:25,584] 65 root - INFO - Exported train and test file paths
+[2025-09-04 18:40:25,584] 44 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(train_file_path='Artifacts\\09_04_2025_18_40_00\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\09_04_2025_18_40_00\\data_ingestion\\ingested\\test.csv')
+[2025-09-04 18:40:25,607] 54 root - INFO - Initiate the data Validation
+[2025-09-04 18:40:25,924] 57 root - INFO - Entered initiate data transformation method
+[2025-09-04 18:40:25,924] 59 root - INFO - starting data transformation
+[2025-09-04 18:40:26,022] 42 root - INFO - Entered get_data_transformer_object method of Transformation class
+[2025-09-04 18:40:26,023] 47 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2025-09-04 18:40:26,041] 50 root - INFO - Entered the save_object method of MainUtils class
+[2025-09-04 18:40:26,045] 54 root - INFO - Exited the save_object method of MainUtils class
+[2025-09-04 18:40:26,045] 50 root - INFO - Entered the save_object method of MainUtils class
+[2025-09-04 18:40:26,047] 54 root - INFO - Exited the save_object method of MainUtils class
+[2025-09-04 18:45:17,567] 868 urllib3.connectionpool - WARNING - Retrying (Retry(total=4, connect=5, read=4, redirect=5, status=5)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /sahithyagunda908/mlops_project1_network_Security.mlflow/api/2.0/mlflow/runs/create
+[2025-09-04 18:46:29,892] 50 root - INFO - Entered the save_object method of MainUtils class
+[2025-09-04 18:46:29,920] 54 root - INFO - Exited the save_object method of MainUtils class
+[2025-09-04 18:46:29,920] 50 root - INFO - Entered the save_object method of MainUtils class
+[2025-09-04 18:46:29,950] 54 root - INFO - Exited the save_object method of MainUtils class
+[2025-09-04 18:46:29,950] 103 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\09_04_2025_18_40_00\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9914720812182741, precision_score=0.9888618874038072, recall_score=0.9940960912052117), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9721780604133545, precision_score=0.962234461054288, recall_score=0.9823293172690764))
